@@ -1,0 +1,20 @@
+name: ReactApp
+on: 
+  push:
+    branches: ["main"]
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: 'checkout code'
+        uses: actions/checkout@v4
+      - name: 'setup node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: node18
+          cahce: 'npm'
+      - name: 'build'
+        run: |
+            npm build
+            npm test
