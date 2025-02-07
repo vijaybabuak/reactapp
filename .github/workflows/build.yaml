@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      artifact_id: ${{ steps.upload-artifact-step.outputs.artifact-id }}
     steps:
       - name: 'checkout code'
         uses: actions/checkout@v4
@@ -21,7 +23,11 @@ jobs:
             npm run build
             npm test
       - name: Upload Artifacts
+        id: upload-artifact-step
         uses: actions/upload-artifact@v4
         with:
           name: dist-output
           path: dist
+      - name: Print Uploaded Artifact id
+        run: |
+          echo "Artifact id : ${{ steps.upload-artifact-step.outputs.artifact-id }}"
