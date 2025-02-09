@@ -12,7 +12,9 @@ jobs:
                 node-version: 18
                 cache: npm
             - name: install depndencies
-              run: npm install
+              run: |
+                npm install
+                npm init @eslint/config
             - name: Node Linting
               run: npm run lint
     test:
