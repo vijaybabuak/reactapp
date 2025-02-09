@@ -12,7 +12,7 @@ jobs:
                 node-version: 18
                 cache: npm
             - name: install depndencies
-              run: npm run install
+              run: npm install
             - name: Node Linting
               run: npm run lint
     test:
@@ -27,7 +27,7 @@ jobs:
                 node-version: 18
                 cache: npm
             - name: install depndencies
-              run: npm run install
+              run: npm install
             - name: app test
               run: npm run test
             - name: build
@@ -44,7 +44,7 @@ jobs:
                 node-version: 18
                 cache: npm
             - name: install depndencies
-              run: npm run install
+              run: npm install
             - name: build
               run: npm run build
             - name: upload-artifact
