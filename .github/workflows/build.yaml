@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cahce: 'npm'
+          cache: 'npm'
       - name: 'Install Dependencies'
         run: npm install
       - name: 'NPM Build'
@@ -31,3 +31,4 @@ jobs:
       - name: Print Uploaded Artifact id
         run: |
           echo "Artifact id : ${{ steps.upload-artifact-step.outputs.artifact-id }}"
+          echo "Artifact URL: ${{ steps.upload-artifact-step.outputs.artifact-url }}"
