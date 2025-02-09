@@ -14,7 +14,11 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-
+      - name: cache
+        uses: actions/cache@v4
+        with:
+            path: ~/.npm
+            key: dep-cache-${{ runner.os }}-${{hashFiles('**/package-lock.json')}}
       - name: 'Install Dependencies'
         run: npm install
       - name: 'NPM Build'
