@@ -63,3 +63,5 @@ jobs:
         run: |
           echo "Artifact id : ${{ steps.upload-artifact-step.outputs.artifact-id }}"
           echo "Artifact URL: ${{ steps.upload-artifact-step.outputs.artifact-url }}"
+      - name: triggered user
+        run: echo "User Invoked Job: $GITHUB_TRIGGERING_ACTOR"
